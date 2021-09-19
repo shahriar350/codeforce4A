@@ -25,6 +25,7 @@ int main()
         {
             sum += arr[j][i];
         }
+
         if (sum == 0)
         {
             check = true;
@@ -32,6 +33,7 @@ int main()
         else
         {
             check = false;
+            break;
         }
     }
     if (check)
