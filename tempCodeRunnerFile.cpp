@@ -4,42 +4,31 @@ using namespace std;
 
 int main()
 {
-    int a;
+    string a;
     cin >> a;
-    int arr[a][3];
-    for (int i = 0; i < a; i++)
+    for (int i = 0; i < a.length(); i++)
     {
-        for (int j = 0; j < 3; j++)
+        if (a[i] == 'W' && a[i + 1] == 'U' && a[i + 2] == 'B')
         {
-            int b;
-            cin >> b;
-            arr[i][j] = b;
-        }
-    }
-
-    bool check = false;
-    for (int i = 0; i < 3; i++)
-    {
-        int sum;
-        for (int j = 0; j < a; j++)
-        {
-            sum += arr[j][i];
-        }
-        if (sum == 0)
-        {
-            check = true;
+            i = i + 2;
         }
         else
         {
-            check = false;
+            for (int j = i; j < a.length(); j++)
+            {
+                // cout << "check " << a[j] << endl;
+                if (a[j + 1] == 'W' && a[j + 2] == 'U' && a[j + 3] == 'B')
+                {
+                    cout << a[j];
+                    i = j + 3;
+                    break;
+                }
+                else
+                {
+                    cout << a[j];
+                }
+            }
+            cout << " ";
         }
-    }
-    if (check)
-    {
-        cout << "YES";
-    }
-    else
-    {
-        cout << "NO";
     }
 }
